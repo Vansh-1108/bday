@@ -1,0 +1,193 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comic Sans MS', cursive;
+  background: linear-gradient(to right, #ffe3c2, #ffc1a1);
+  overflow-x: hidden;
+  position: relative;
+}
+.container {
+  background: #fff5ed;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 800px;
+  margin: 10vh auto;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+h1 {
+  color: #ff6f61;
+  font-size: 2.5rem;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+.message {
+  font-size: 1.1rem;
+  margin-top: 20px;
+  line-height: 1.5;
+  color: #444;
+}
+button {
+  background: #ff4081;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-top: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 64, 129, 0.5);
+}
+.hidden { display: none; }
+img { max-width: 100%; margin-top: 20px; border-radius: 15px; }
+.collage {
+    position: relative;
+      width: 100%;
+      max-width: 600px;
+      margin: 30px auto;
+      height: 400px;
+    }
+
+    .collage-img {
+      position: absolute;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .collage-img:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    /* Positioning each image manually */
+    .img1 {
+      top: 0;
+      left: 10%;
+      width: 150px;
+      height: 150px;
+      transform: rotate(-5deg);
+    }
+    .img2 {
+      top: 30px;
+      left: 50%;
+      width: 160px;
+      height: 160px;
+      transform: rotate(8deg);
+    }
+    .img3 {
+      top: 120px;
+      left: 25%;
+      width: 130px;
+      height: 130px;
+      transform: rotate(-3deg);
+    }
+    .img4 {
+      top: 200px;
+      left: 60%;
+      width: 140px;
+      height: 140px;
+      transform: rotate(6deg);
+    }
+    .img5 {
+      top: 160px;
+      left: 5%;
+      width: 120px;
+      height: 120px;
+      transform: rotate(-10deg);
+    
+}
+.animated-cake {
+  width: 200px;
+  animation: swing 1s infinite;
+}
+@keyframes glow {
+  from { text-shadow: 0 0 5px #ffb6b6; }
+  to { text-shadow: 0 0 20px #ff6f61, 0 0 30px #ffb6b6; }
+}
+@keyframes swing {
+  0% { transform: rotate(0); }
+  50% { transform: rotate(2deg); }
+  100% { transform: rotate(-2deg); }
+}
+.floating-hearts {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  z-index: -1;
+  background-image: url('https://media.giphy.com/media/l4FGJ6eL9oPdmIr9G/giphy.gif');
+  background-size: cover;
+  opacity: 0.05;
+}
+.animate-slide { animation: slideIn 2s ease-out forwards; }
+.animate-fade { animation: fadeIn 2s ease-in forwards; }
+@keyframes slideIn {
+  from { transform: translateX(-100%); opacity: 0; } 
+  to { transform: translateX(0); opacity:1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+/* Container for floating stars and hearts */
+.floating-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* So clicks pass through */
+  overflow: hidden;
+  z-index: -1;
+}
+
+/* Common styles for stars and hearts */
+.floating-star, .floating-heart {
+  position: absolute;
+  opacity: 0.8;
+  animation-timing-function: linear;
+  will-change: transform, opacity;
+}
+
+/* Star style */
+.floating-star {
+  width: 10px;
+  height: 10px;
+  background: white;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 
+    68% 57%, 79% 91%, 50% 70%, 
+    21% 91%, 32% 57%, 2% 35%, 
+    39% 35%
+  );
+  filter: drop-shadow(0 0 2px white);
+  animation-name: floatUpFade;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
+/* Heart style */
+.floating-heart {
+  width: 15px;
+  height: 15px;
+  background: #ff4081;
+  clip-path: polygon(
+    50% 15%, 61% 0%, 100% 35%, 80% 75%, 
+    50% 100%, 20% 75%, 0% 35%, 39% 0%
+  );
+  animation-name: floatUpFade;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+/* Floating up and fading animation */
+@keyframes floatUpFade {
+  0% {
+    transform: translateY(100vh) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.2);
+    opacity: 0;
+  }
+}
